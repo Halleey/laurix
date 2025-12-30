@@ -5,8 +5,6 @@ KERNEL_LOCATION equ 0x1000
 DATA_SEG equ 0x10
 CODE_SEG equ 0x08
 
-mov [BOOT_DISK], dl
-
 xor ax, ax
 mov ds, ax
 mov es, ax
