@@ -1,21 +1,11 @@
-#include <stdint.h>
-
-static uint16_t cursor;  // .bss
-
-static volatile uint16_t* const vga =
-    (uint16_t*)0xB8000;  // memória VGA
-
-void putchar(char c) {
-    uint8_t color = 0x04; // vermelho no fundo preto
-    vga[cursor++] = (color << 8) | c;
-}
+#include "include/vga.h"
 
 void lau_main() {
-    const char msg[] = "Kernel From Scratch";
+    vga_set_color(VGA_LIGHT_GREEN, VGA_BLACK);
+    vga_print("[OK] Kernel From Scratch\n");
 
-    for (int i = 0; msg[i]; i++) {
-        putchar(msg[i]);
-    }
+    vga_set_color(VGA_LIGHT_RED, VGA_BLACK);
+    vga_print("  [ERROR] Debug de cores funcionando\n");
 
     while (1);
 }
