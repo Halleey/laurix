@@ -1,10 +1,11 @@
-void putchar(char c){
-    char* vga = (char*)0xB8000;
-    vga[0] = c;
-    vga[1] = 0x0f;
-}
+#include "include/vga.h"
 
-void lau_main(){
-    putchar('E');
+void lau_main() {
+    vga_set_color(VGA_LIGHT_GREEN, VGA_BLACK);
+    vga_print("[OK] Kernel From Scratch\n");
+
+    vga_set_color(VGA_LIGHT_RED, VGA_BLACK);
+    vga_print("  [ERROR] Debug de cores funcionando\n");
+
     while (1);
 }
