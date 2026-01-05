@@ -5,6 +5,7 @@ void putchar(char c){
 }
 
 void lau_main(){
-    putchar('E');
+    putchar('C');
+    putchar('A');
     while (1);
 }
